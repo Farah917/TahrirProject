@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mogamaa Al Tahrir Hotel - Architectural Transformation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body class="bg-black text-white">
+    
+    <!-- Fixed Navbar with Toggle -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/100 transition-transform duration-300 ease-in-out">
+        <div class="max-w-screen-2xl mx-auto px-8 py-6">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-light tracking-wider text-white">
+                    Mogamaa Al Tahrir
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-12">
+                    <div class="flex space-x-12 text-sm font-light">
+                        <a href="#home" class="text-white transition-colors tracking-wide text-decoration-none">HOME</a>
+                        <a href="#projects" class="text-white transition-colors tracking-wide">VISION</a>
+                        <a href="#about" class="text-white transition-colors tracking-wide">ABOUT</a>
+                        <a href="#contact" class="text-white transition-colors tracking-wide">CONTACT</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="mobileMenuToggle" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-80 backdrop-blur-xl md:hidden bg-black">
+            <div class="flex justify-end p-6 relative">
+                <button id="closeMobileMenu" class="text-white left-8 absolute">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="px-6 py-16 space-y-8 text-lg font-light bg-black h-[100vh]">
+                <a href="#home" class="block text-white hover:text-emerald-700 transition-colors tracking-wide">HOME</a>
+                <a href="#projects" class="block text-white hover:text-emerald-700 transition-colors tracking-wide">VISION</a>
+                <a href="#about" class="block text-white hover:text-emerald-700 transition-colors tracking-wide">ABOUT</a>
+                <a href="#contact" class="block text-white hover:text-emerald-700 transition-colors tracking-wide">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative pt-32 lg:pt-24">
+        <div class="max-w-screen-2xl mx-auto px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-white">
+                    <div class="text-sm font-light tracking-[0.3em] text-[#E1B87F] mb-6">ARCHITECTURAL RENAISSANCE</div>
+                    <h1 class="text-6xl lg:text-8xl font-extralight mb-8 leading-none text-shadow">
+                        CRAFTING<br>
+                        <span class="font-light">THE FUTURE</span>
+                    </h1>
+                    <p class="text-xl font-light opacity-90 mb-12 max-w-lg leading-relaxed">
+                        Transforming Cairo's iconic Mogamaa Al Tahrir into a sustainable luxury hotel that honors heritage while embracing tomorrow
+                    </p>
+                    <div class="flex space-x-6">
+                        <button class="border border-white/30 text-white px-8 py-4 text-sm font-light tracking-wide hover:bg-white hover:text-stone-900 transition-all duration-300">
+                            EXPLORE VISION
+                        </button>
+                        <button class="text-white text-sm font-light tracking-wide hover:text-[#E1B87F] transition-colors flex items-center">
+                            WATCH FILM →
+                        </button>
+                    </div>
+                </div>
+                <div class="floating-element lg:block ">
+                    <div class="relative">
+                        <img src="Img/tahrir 1.jpg" alt="Heritage Vision" class="w-full rounded-sm shadow-2xl">
+                        <div class="absolute -bottom-6 -right-6 bg-[#E1B87F] text-black/80 p-4 text-sm font-light">
+                            <div class="tracking-wide">EST. 1949</div>
+                            <div class="opacity-70">REBORN 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-8 bg-stone-900">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                <div class="floating-element">
+                    <img src="Img/tahrir.jpg" alt="Historical Building" class="w-full rounded-sm shadow-2xl">
+                </div>
+                <div class="text-white">
+                    <div class="text-sm font-light tracking-[0.3em] text-emerald-700 mb-6">OUR STORY</div>
+                    <h3 class="text-5xl font-extralight mb-8 leading-tight">
+                        Heritage<br>
+                        <span class="font-light">Meets Innovation</span>
+                    </h3>
+                    <p class="text-lg font-light leading-relaxed mb-8 opacity-90">
+                        The Mogamaa Al Tahrir stands as a testament to Cairo's architectural evolution. Our vision transforms this brutalist masterpiece into a sustainable luxury destination that honors its governmental heritage while creating spaces for modern hospitality.
+                    </p>
+                    <p class="text-lg font-light leading-relaxed mb-12 opacity-90">
+                        Through careful restoration and innovative design, we're preserving the building's iconic character while introducing contemporary amenities that serve both guests and the community.
+                    </p>
+                    <button class="border border-white/30 text-white px-8 py-4 text-sm font-light tracking-wide hover:bg-white hover:text-stone-900 transition-all duration-300">
+                        LEARN MORE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Asymmetric Layout -->
+    <section id="projects" class="py-24 px-8">
+        <div class="max-w-screen-2xl mx-auto">
+            <!-- Section Header -->
+            <div class="mb-24">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                    <div class="lg:col-span-1">
+                        <div class="text-sm font-light tracking-[0.3em] text-[#E1B87F] mb-4 font-serif">ARCHITECTURAL VISION</div>
+                        <h2 class="text-5xl lg:text-6xl font-extralight text-white leading-tight font-serif">
+                            Vision<br>
+                            <span class="font-light">Reimagined</span>
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-2 flex items-end">
+                        <p class="text-lg font-light text-white leading-relaxed max-w-2xl">
+                            Discover how we're reimagining this architectural landmark through sustainable design, cultural preservation, and innovative hospitality concepts that honor Cairo's rich past.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asymmetric Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w ">
+                <!-- Bedrooms (Tall) -->
+                <div class="relative image-overlay cursor-pointer rounded-lg overflow-hidden shadow-lg aspect-square w-full lg:aspect-auto sm:aspect-auto sm:row-span-2 sm:col-span-1 lg:row-span-2 lg:col-span-1" onclick="openModal('bedrooms')">
+                    <img src="Img/bedroom 2.jpg" alt="Bedrooms" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4 text-white z-10">
+                        <div class="text-xs tracking-wide opacity-70 font-serif">01</div>
+                        <h3 class="text-xl font-serif mb-1">Bedrooms</h3>
+                        <p class="text-xs opacity-90 max-w-xs">Restful, elegant spaces with a retro-modern touch</p>
+                    </div>
+                </div>
+                <!-- Restaurants (Wide) -->
+                <div class="relative image-overlay cursor-pointer rounded-lg overflow-hidden shadow-lg aspect-square w-full lg:aspect-auto lg:h-64 sm:aspect-auto sm:row-span-1 sm:col-span-1 lg:row-span-1 lg:col-span-2" onclick="openModal('restaurants')">
+                    <img src="Img/bar.png" alt="Restaurants" class="w-full h-full object-cover object-bottom">
+                    <div class="absolute top-4 right-4 text-white z-10 text-right">
+                        <div class="text-xs tracking-wide opacity-70 font-serif">02</div>
+                        <h3 class="text-lg font-serif mb-1">Restaurants</h3>
+                        <p class="text-xs opacity-90 max-w-xs">Fine dining with a 60s flair</p>
+                    </div>
+                </div>
+                <!-- Pool (Medium) -->
+                <div class="relative image-overlay cursor-pointer rounded-lg overflow-hidden shadow-lg aspect-square w-full lg:aspect-auto lg:h-64 sm:aspect-auto sm:row-span-1 sm:col-span-1" onclick="openModal('pool')">
+                    <img src="Img/pool area 1.jpg" alt="Pool" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4 text-white z-10">
+                        <div class="text-xs tracking-wide opacity-70 font-serif">03</div>
+                        <h3 class="text-lg font-serif mb-1">Pool</h3>
+                        <p class="text-xs opacity-90">Retro rooftop oasis</p>
+                    </div>
+                </div>
+                <!-- Lobby (Square) -->
+                <div class="relative image-overlay cursor-pointer rounded-lg overflow-hidden shadow-lg aspect-square w-full lg:aspect-auto lg:h-64 sm:aspect-auto sm:row-span-1 sm:col-span-1" onclick="openModal('lobby')">
+                    <img src="Img/lobby 1.jpg" alt="Lobby" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center text-white z-10 text-center">
+                        <div>
+                            <div class="text-xs tracking-wide opacity-70 mb-2 font-serif">04</div>
+                            <h3 class="text-lg font-serif">Lobby</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery (Wide Short) -->
+                <div class="relative image-overlay cursor-pointer rounded-lg overflow-hidden shadow-lg aspect-square w-full lg:aspect-auto lg:h-64 sm:aspect-auto sm:row-span-1 sm:col-span-1 lg:col-span-2" onclick="openModal('gallery')">
+                    <img src="Img/resting room.jpg" alt="Gallery" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4 text-white z-10">
+                        <div class="text-xs tracking-wide opacity-70 font-serif">05</div>
+                        <h3 class="text-lg font-serif mb-1">Gallery</h3>
+                        <p class="text-xs opacity-90">Art, culture, and more</p>
+                    </div>
+                </div>
+                <!-- More (Medium Square) -->
+                <div class="relative image-overlay cursor-pointer rounded-lg overflow-hidden shadow-lg aspect-square w-full lg:aspect-auto lg:h-64 sm:aspect-auto sm:row-span-1 sm:col-span-1" onclick="openModal('amenities')">
+                    <img src="Img/in.jpg" alt="More" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4 text-white z-10">
+                        <div class="text-xs tracking-wide opacity-70 font-serif">06</div>
+                        <h3 class="text-lg font-serif mb-1">Amenities</h3>
+                        <p class="text-xs opacity-90">Discover all hotel spaces</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="hotelModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            
+            <!-- Image Gallery -->
+            <div class="modal-gallery">
+                <div class="modal-slider" id="modalSlider">
+                    <!-- Images will be dynamically loaded here -->
+                </div>
+                
+                <!-- Navigation -->
+                <button class="modal-nav modal-prev" onclick="prevModalSlide()">&#10094;</button>
+                <button class="modal-nav modal-next" onclick="nextModalSlide()">&#10095;</button>
+                
+                <!-- Indicators -->
+                <div class="modal-indicators" id="modalIndicators">
+                    <!-- Dots will be dynamically created here -->
+                </div>
+            </div>
+            
+            <!-- Information -->
+            <div class="modal-info" id="modalInfo">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature Section with Fixed Layout -->
+    <section class="py-24 px-8 bg-black">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-stretch">
+                <div class="flex flex-col justify-center">
+                    <div class="text-sm font-light tracking-[0.3em] text-emerald-700 mb-6">PROJECT SPECIFICATIONS</div>
+                    <h3 class="text-4xl font-extralight text-white mb-8 leading-tight">
+                        Architectural<br>
+                        <span class="font-light text-white">Details</span>
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-center border-b border-white pb-4">
+                            <span class="text-white font-light">Total Area</span>
+                            <span class="font-light text-white">45,000 m²</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white pb-4">
+                            <span class="text-white font-light">Hotel Rooms</span>
+                            <span class="font-light text-white">180 Suites</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white pb-4">
+                            <span class="text-white font-light">Cultural Spaces</span>
+                            <span class="font-light text-white">8 Galleries</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white pb-4">
+                            <span class="text-white font-light">Sustainability Rating</span>
+                            <span class="font-light text-white">LEED Platinum</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-white font-light">Completion</span>
+                            <span class="font-light text-white">2027</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative h-[500px]">
+                    <img src="Img/plan.jpg" alt="Architectural Plans" class="w-full object-contain rounded-sm h-full">
+                    <div class="absolute top-8 right-8 bg-black/90 p-6 backdrop-blur-sm">
+                        <div class="text-center tracking-wide text-emerald-700 mb-2">GROUND FLOOR</div>
+                        <div class="text-center font-light text-white">Heritage Lobby</div>
+                        <div class="text-center font-light text-white">Cultural Galleries</div>
+                        <div class="text-center font-light text-white">Restaurant & Café</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-8 bg-black">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="text-sm font-light tracking-[0.3em] text-emerald-700 mb-6">GET IN TOUCH</div>
+                <h3 class="text-5xl font-extralight text-white mb-8">
+                    Let's Create<br>
+                    <span class="font-light">Together</span>
+                </h3>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+                <div class="text-white space-y-8">
+                    <div>
+                        <h4 class="text-xl font-light mb-4">Project Inquiries</h4>
+                        <p class="text-white/70 mb-2">nesma.tahrir@gmail.com</p>
+                        <p class="text-white/70">+20 10 6647 651 8</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-light mb-4">Location</h4>
+                        <p class="text-white/70">Tahrir Square, Downtown Cairo<br>Egypt</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-light mb-4">Follow Progress</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white/70 hover:text-emerald-700 transition-colors">Instagram</a>
+                            <a href="#" class="text-white/70 hover:text-emerald-700 transition-colors">LinkedIn</a>
+                            <a href="#" class="text-white/70 hover:text-emerald-700 transition-colors">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-stone-900 p-8 rounded-sm">
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full bg-transparent border-b border-white/30 py-3 text-white placeholder-white/50 focus:border-emerald-700 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email Address" class="w-full bg-transparent border-b border-white/30 py-3 text-white placeholder-white/50 focus:border-emerald-700 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="Your Message" class="w-full bg-transparent border-b border-white/30 py-3 text-white placeholder-white/50 focus:border-emerald-700 focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full border border-white/30 text-white py-4 text-sm font-light tracking-wide hover:bg-white hover:text-stone-900 transition-all duration-300">
+                            SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer id="contact" class="bg-stone-900 text-stone-300 py-16 px-8">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-2">
+                    <div class="text-2xl font-light tracking-wider text-emerald-700 mb-6">MOGAMAA Al tahrir</div>
+                    <p class="text-stone-400 font-light leading-relaxed max-w-md">
+                        Transforming Cairo's architectural legacy through sustainable luxury hospitality design.
+                    </p>
+                </div>
+                <div>
+                    <div class="text-sm tracking-wide text-stone-500 mb-6">CONTACT</div>
+                    <div class="space-y-3 text-sm font-light">
+                        <div>nesma.tahrir@gmail.com</div>
+                        <div>+20 10 664 7651 8</div>
+                        <div>Tahrir Square, Cairo</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-sm tracking-wide text-stone-500 mb-6">FOLLOW</div>
+                    <div class="space-y-3 text-sm font-light">
+                        <div>Instagram</div>
+                        <div>LinkedIn</div>
+                        <div>Newsletter</div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-stone-800 mt-16 pt-8 text-center text-xs font-light text-stone-500">
+                © 2025 Mogamaa Heritage Hotel. Crafting sustainable luxury in historic Cairo. <br> By: Architect <span class="italic"> Nesma Magdi </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+</body>
+</html>
