@@ -206,7 +206,7 @@ function openModal(spaceType) {
     data.images.forEach((image, index) => {
         const slide = document.createElement('div');
         slide.className = 'modal-slide';
-        slide.innerHTML = `<img src="${image}" alt="${data.title}" class="w-80">`;
+        slide.innerHTML = `<img src="${image}" alt="${data.title}">`;
         modalSlider.appendChild(slide);
     });
 
@@ -341,7 +341,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
 
 // Add intersection observer for animations
 const observerOptions = {
-    threshold: 0.1,
+    threshold: 0.5,
     rootMargin: '0px 0px -50px 0px'
 };
 

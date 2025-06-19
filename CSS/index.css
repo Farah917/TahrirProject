@@ -197,15 +197,20 @@ a:hover, .retro-link:hover { color: #E1B87F; text-decoration: none; border-radiu
     position: relative;
     height: 50%;
     overflow: hidden;
+    width: 100%;
+    display: block;
 }
 
 .modal-slider {
+    display: flex;
+    width: 100%;
     height: 100%;
     transition: transform 0.5s ease;
 }
 
 .modal-slide {
     min-width: 100%;
+    height: 100%;
     position: relative;
 }
 
@@ -310,13 +315,6 @@ a:hover, .retro-link:hover { color: #E1B87F; text-decoration: none; border-radiu
 .modal-feature p {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
-}
-.modal-gallery, .modal-slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    overflow-x: auto;
 }
 .modal-gallery img, .modal-info img {
     display: block;
