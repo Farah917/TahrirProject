@@ -1,366 +1,235 @@
-// Modal data for different hotel spaces
-const modalData = {
-    bedrooms: {
-        title: "Luxury Bedrooms",
-        description: "Experience the perfect blend of 1960s elegance and modern comfort in our thoughtfully designed suites. Each room features period-appropriate furnishings, contemporary amenities, and stunning views of Cairo's skyline.",
-        images: [
-            "Img/bedroom 1.webp",
-            "Img/bedroom 2.jpg",
-            "Img/bedroom 3.jpg"
-        ],
-        features: [
-            {
-                title: "Retro-Modern Design",
-                desc: "Mid-century modern furniture with contemporary luxury touches"
-            },
-            {
-                title: "Premium Amenities",
-                desc: "High-end finishes, smart room technology, and personalized service"
-            },
-            {
-                title: "City Views",
-                desc: "Panoramic windows overlooking historic Tahrir Square"
-            },
-            {
-                title: "Sustainable Features",
-                desc: "Energy-efficient systems and eco-friendly materials throughout"
-            }
-        ]
-    },
-    restaurants: {
-        title: "Fine Dining Restaurants",
-        description: "Savor exceptional cuisine in our collection of restaurants, each offering a unique culinary journey through Egyptian and international flavors, set within stunning retro-inspired interiors.",
-        images: [
-            "Img/restaurant 1.jpg",
-            "Img/restaurant 2.jpg",
-            "Img/restaurant 3.jpg",
-            "Img/restaurant 4.jpg"
-        ],
-        features: [
-            {
-                title: "Signature Restaurant",
-                desc: "Contemporary Egyptian cuisine with international influences"
-            },
-            {
-                title: "Rooftop Bar",
-                desc: "Craft cocktails with panoramic views of Cairo"
-            },
-            {
-                title: "Café Lounge",
-                desc: "All-day dining in a relaxed, stylish atmosphere"
-            },
-            {
-                title: "Private Dining",
-                desc: "Exclusive spaces for special occasions and events"
-            }
-        ]
-    },
-    pool: {
-        title: "Rooftop Pool & Wellness",
-        description: "Escape to our rooftop oasis featuring a stunning infinity pool, wellness facilities, and breathtaking views of the Nile and Cairo's historic skyline.",
-        images: [
-            "Img/pool area 1.jpg",
-            "Img/pool area 2.jpg",
-            "Img/pool area 3.jpg"
-        ],
-        features: [
-            {
-                title: "Infinity Pool",
-                desc: "Temperature-controlled pool with panoramic city views"
-            },
-            {
-                title: "Wellness Center",
-                desc: "Full-service spa with traditional and modern treatments"
-            },
-            {
-                title: "Fitness Facility",
-                desc: "State-of-the-art equipment with personal training services"
-            },
-            {
-                title: "Pool Deck",
-                desc: "Luxurious lounging areas and poolside service"
-            }
-        ]
-    },
-    lobby: {
-        title: "Grand Lobby",
-        description: "Step into our magnificent lobby where original architectural elements meet contemporary luxury design, creating an impressive entrance that honors the building's heritage.",
-        images: [
-            "Img/lobby 1.jpg",
-            "Img/lobby 2.jpg",
-            "Img/lobby 3.jpg",
-        ],
-        features: [
-            {
-                title: "Heritage Architecture",
-                desc: "Preserved original features with modern interpretations"
-            },
-            {
-                title: "Concierge Services",
-                desc: "24/7 personalized assistance and local expertise"
-            },
-            {
-                title: "Art Gallery",
-                desc: "Rotating exhibitions featuring Egyptian contemporary art"
-            },
-            {
-                title: "Social Spaces",
-                desc: "Comfortable seating areas for relaxation and meetings"
-            }
-        ]
-    },
-    gallery: {
-        title: "Cultural Galleries",
-        description: "Discover our collection of cultural spaces that celebrate Egyptian art, history, and contemporary creativity through rotating exhibitions and permanent installations.",
-        images: [
-            "Img/resting room.jpg",
-            "Img/lobby 1.jpg",
-            "Img/bedroom 2.jpg"
-        ],
-        features: [
-            {
-                title: "Exhibition Spaces",
-                desc: "Multiple galleries showcasing local and international artists"
-            },
-            {
-                title: "Cultural Events",
-                desc: "Regular lectures, workshops, and artistic performances"
-            },
-            {
-                title: "Heritage Center",
-                desc: "Interactive displays about the building's history"
-            },
-            {
-                title: "Community Access",
-                desc: "Public programming that connects hotel guests with local culture"
-            }
-        ]
-    },
-    amenities: {
-        title: "Premium Amenities",
-        description: "Enjoy a comprehensive range of luxury amenities designed to enhance every aspect of your stay, from business facilities to recreational activities.",
-        images: [
-            "Img/lobby 1.jpg",
-            "Img/lobby 2.jpg",
-            "Img/lobby 1.jpg"
-        ],
-        features: [
-            {
-                title: "Business Center",
-                desc: "Modern meeting rooms and conference facilities"
-            },
-            {
-                title: "Shopping Arcade",
-                desc: "Curated selection of local and international brands"
-            },
-            {
-                title: "Valet Services",
-                desc: "Comprehensive concierge and personal assistant services"
-            },
-            {
-                title: "Transportation",
-                desc: "Airport transfers and city tour arrangements"
-            }
-        ]
-    }
-};
-
-// Mobile menu functionality
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMobileMenu = document.getElementById('closeMobileMenu');
-
-mobileMenuToggle.addEventListener('click', () => {
-    mobileMenu.classList.add('active');
-});
-
-closeMobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.remove('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-    });
-});
-
-// Modal functionality
-let currentModalSlide = 0;
-let currentModalImages = [];
-
-function openModal(spaceType) {
-    const modal = document.getElementById('hotelModal');
-    const modalSlider = document.getElementById('modalSlider');
-    const modalInfo = document.getElementById('modalInfo');
-    const modalIndicators = document.getElementById('modalIndicators');
-    
-    const data = modalData[spaceType];
-    if (!data) return;
-
-    currentModalImages = data.images;
-    currentModalSlide = 0;
-
-    // Create slider images
-    modalSlider.innerHTML = '';
-    data.images.forEach((image, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'modal-slide';
-        slide.innerHTML = `<img src="${image}" alt="${data.title}">`;
-        modalSlider.appendChild(slide);
-    });
-
-    // Create indicators
-    modalIndicators.innerHTML = '';
-    data.images.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.className = `modal-dot ${index === 0 ? 'active' : ''}`;
-        dot.onclick = () => goToModalSlide(index);
-        modalIndicators.appendChild(dot);
-    });
-
-    // Create info content
-    modalInfo.innerHTML = `
-        <h2 class="modal-title">${data.title}</h2>
-        <p class="modal-description">${data.description}</p>
-        <div class="modal-features">
-            ${data.features.map(feature => `
-                <div class="modal-feature">
-                    <h4>${feature.title}</h4>
-                    <p>${feature.desc}</p>
-                </div>
-            `).join('')}
-        </div>
-    `;
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    const modal = document.getElementById('hotelModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-function nextModalSlide() {
-    currentModalSlide = (currentModalSlide + 1) % currentModalImages.length;
-    updateModalSlider();
-}
-
-function prevModalSlide() {
-    currentModalSlide = (currentModalSlide - 1 + currentModalImages.length) % currentModalImages.length;
-    updateModalSlider();
-}
-
-function goToModalSlide(index) {
-    currentModalSlide = index;
-    updateModalSlider();
-}
-
-function updateModalSlider() {
-    const modalSlider = document.getElementById('modalSlider');
-    const modalIndicators = document.getElementById('modalIndicators');
-    
-    modalSlider.style.transform = `translateX(-${currentModalSlide * 100}%)`;
-    
-    // Update indicators
-    const dots = modalIndicators.querySelectorAll('.modal-dot');
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentModalSlide);
-    });
-}
-
-// Close modal when clicking outside
-document.getElementById('hotelModal').addEventListener('click', (e) => {
-    if (e.target.id === 'hotelModal') {
-        closeModal();
-    }
-});
-
-// Keyboard navigation for modal
-document.addEventListener('keydown', (e) => {
-    const modal = document.getElementById('hotelModal');
-    if (modal.classList.contains('active')) {
-        if (e.key === 'Escape') closeModal();
-        if (e.key === 'ArrowLeft') prevModalSlide();
-        if (e.key === 'ArrowRight') nextModalSlide();
-    }
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Add scroll effect to navbar
+// Navbar scroll functionality
 let lastScrollTop = 0;
-const navbar = document.querySelector('nav');
+const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
     if (scrollTop > lastScrollTop && scrollTop > 100) {
         // Scrolling down
-        navbar.style.transform = 'translateY(-100%)';
+        navbar.classList.add('hide-navbar');
+        navbar.classList.remove('show-navbar');
     } else {
         // Scrolling up
-        navbar.style.transform = 'translateY(0)';
+        navbar.classList.remove('hide-navbar');
+        navbar.classList.add('show-navbar');
     }
     
     lastScrollTop = scrollTop;
 });
 
-// Form submission
-document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(e.target);
-    const name = e.target.querySelector('input[type="text"]').value;
-    const email = e.target.querySelector('input[type="email"]').value;
-    const message = e.target.querySelector('textarea').value;
-    
-    if (name && email && message) {
-        // Simulate form submission
-        alert('Thank you for your message! We will get back to you soon.');
-        e.target.reset();
-    } else {
-        alert('Please fill in all fields.');
+// Navbar toggler
+const toggler = document.querySelector('.custom-toggler');
+const collapse = document.querySelector('.collapse');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function toggleNavbar() {
+    toggler.classList.toggle('open');
+    collapse.classList.toggle('show');
+}
+
+toggler.addEventListener('click', toggleNavbar);
+
+// Set active nav-link on click
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        if (window.innerWidth < 992) {
+            toggler.classList.remove('open');
+            collapse.classList.remove('show');
+        }
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (window.innerWidth < 992) {
+        if (!collapse.contains(e.target) && !toggler.contains(e.target)) {
+            toggler.classList.remove('open');
+            collapse.classList.remove('show');
+        }
     }
 });
 
-// Add intersection observer for animations
-const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+// Gallery Modal
+class GalleryModal {
+    constructor() {
+        this.modal = document.getElementById('imageModal');
+        this.track = document.querySelector('.gallery-track');
+        this.prevBtn = document.querySelector('.gallery-prev');
+        this.nextBtn = document.querySelector('.gallery-next');
+        this.counter = document.querySelector('.gallery-counter');
+        this.dotsContainer = document.querySelector('.gallery-dots-container');
+        this.currentIndex = 0;
+        this.images = [];
+        this.currentGallery = '';
+        this.init();
+    }
+    init() {
+        document.querySelectorAll('.interior-image-container').forEach(container => {
+            container.addEventListener('click', (e) => this.openGallery(e));
+        });
+        this.prevBtn.addEventListener('click', () => this.prevImage());
+        this.nextBtn.addEventListener('click', () => this.nextImage());
+        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+        this.initTouchSupport();
+        this.modal.addEventListener('hidden.bs.modal', () => this.resetGallery());
+    }
+    openGallery(e) {
+        const container = e.currentTarget;
+        const gallery = container.dataset.gallery;
+        const startIndex = parseInt(container.dataset.index);
+        this.currentGallery = gallery;
+        this.currentIndex = startIndex;
+        // Only select visible images (not display: none)
+        const visibleContainers = Array.from(document.querySelectorAll(`[data-gallery="${gallery}"]`)).filter(el => {
+            // Check if element or any parent is display: none
+            return el.offsetParent !== null;
+        });
+        this.images = visibleContainers.map(el => {
+            const img = el.querySelector('img');
+            return { src: img.src, alt: img.alt };
+        });
+        // Find the correct index among visible images
+        const visibleIndex = visibleContainers.findIndex(el => el === container);
+        const modalTitle = document.getElementById('imageModalLabel');
+        modalTitle.textContent = gallery.charAt(0).toUpperCase() + gallery.slice(1);
+        this.buildGallery();
+        const modal = new bootstrap.Modal(this.modal);
+        modal.show();
+        this.goToImage(visibleIndex);
+    }
+    buildGallery() {
+        this.track.innerHTML = '';
+        this.images.forEach((image, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'gallery-slide';
+            slide.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
+            this.track.appendChild(slide);
+        });
+        this.renderDots();
+        this.updateCounter();
+    }
+    goToImage(index) {
+        this.currentIndex = index;
+        const translateX = -index * 100;
+        this.track.style.transform = `translateX(${translateX}%)`;
+        this.updateCounter();
+        this.updateNavButtons();
+        this.updateDots();
+    }
+    prevImage() {
+        if (this.images.length === 0) return;
+        if (this.currentIndex > 0) {
+            this.goToImage(this.currentIndex - 1);
+        } else {
+            this.goToImage(this.images.length - 1);
         }
-    });
-}, observerOptions);
+    }
+    nextImage() {
+        if (this.images.length === 0) return;
+        if (this.currentIndex < this.images.length - 1) {
+            this.goToImage(this.currentIndex + 1);
+        } else {
+            this.goToImage(0);
+        }
+    }
+    updateCounter() {
+        const currentSpan = this.counter.querySelector('.current-image');
+        const totalSpan = this.counter.querySelector('.total-images');
+        currentSpan.textContent = this.currentIndex + 1;
+        totalSpan.textContent = this.images.length;
+    }
+    updateNavButtons() {
+        this.prevBtn.style.opacity = this.currentIndex === 0 ? '0.5' : '1';
+        this.nextBtn.style.opacity = this.currentIndex === this.images.length - 1 ? '0.5' : '1';
+    }
+    handleKeyboard(e) {
+        if (!this.modal.classList.contains('show')) return;
+        switch(e.key) {
+            case 'ArrowLeft': e.preventDefault(); this.prevImage(); break;
+            case 'ArrowRight': e.preventDefault(); this.nextImage(); break;
+            case 'Escape': bootstrap.Modal.getInstance(this.modal).hide(); break;
+        }
+    }
+    initTouchSupport() {
+        let startX = 0, currentX = 0, isDragging = false;
+        this.track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isDragging = true; });
+        this.track.addEventListener('touchmove', (e) => { if (!isDragging) return; currentX = e.touches[0].clientX; if (Math.abs(startX - currentX) > 10) e.preventDefault(); });
+        this.track.addEventListener('touchend', (e) => { if (!isDragging) return; const diff = startX - currentX; const threshold = 50; if (Math.abs(diff) > threshold) { if (diff > 0) this.nextImage(); else this.prevImage(); } isDragging = false; });
+    }
+    resetGallery() { this.currentIndex = 0; this.images = []; this.track.style.transform = 'translateX(0)'; }
+    renderDots() {
+        if (!this.dotsContainer) return;
+        this.dotsContainer.innerHTML = '';
+        this.dots = [];
+        for (let i = 0; i < this.images.length; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'gallery-dot' + (i === this.currentIndex ? ' active' : '');
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.goToImage(i);
+            });
+            this.dotsContainer.appendChild(dot);
+            this.dots.push(dot);
+        }
+    }
+    updateDots() {
+        if (!this.dots) return;
+        this.dots.forEach((dot, i) => {
+            if (i === this.currentIndex) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+}
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.floating-element, .image-overlay');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+function setupGalleryRowHover() {
+    document.querySelectorAll('.interior-gallery-row').forEach(row => {
+        const images = Array.from(row.querySelectorAll('.interior-image-container'));
+        images.forEach((img, idx) => {
+            img.addEventListener('mouseenter', () => {
+                images.forEach((other, i) => {
+                    if (i === idx) { other.classList.add('expanded'); other.classList.remove('shrunk'); }
+                    else { other.classList.add('shrunk'); other.classList.remove('expanded'); }
+                });
+            });
+            img.addEventListener('mouseleave', () => {
+                images.forEach(other => { other.classList.remove('expanded', 'shrunk'); });
+            });
+            img.addEventListener('focus', () => {
+                images.forEach((other, i) => {
+                    if (i === idx) { other.classList.add('expanded'); other.classList.remove('shrunk'); }
+                    else { other.classList.add('shrunk'); other.classList.remove('expanded'); }
+                });
+            });
+            img.addEventListener('blur', () => {
+                images.forEach(other => { other.classList.remove('expanded', 'shrunk'); });
+            });
+        });
     });
+}
+
+// Smooth Scrolling for NavBar
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new GalleryModal();
+    setupGalleryRowHover();
+    initSmoothScrolling();
 });
